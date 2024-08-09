@@ -1,17 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Header } from "./components/Header"
-import { Turmas } from "./pages/Turmas"
-import { Alunos } from "./pages/Alunos"
+import { SideBar } from "./components/SideBar"
+import { CadastrarAlunos } from "./pages/Alunos/CadastrarAlunos"
+import { ListarAlunos } from "./pages/Alunos/ListarAlunos"
 import { Chamada } from "./pages/Chamada"
+import { CadastrarTurmas } from "./pages/Turmas/CadastrarTurmas"
+import { AlterarTurmas } from "./pages/Turmas/AlterarTurmas"
+import { ListarTurmas } from "./pages/Turmas/ListarTurmas"
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <SideBar />
       <Routes>
-        <Route path='/' element={<Turmas />} />
-        <Route path="/alunos" element={<Alunos />} />
-        <Route path="/chamada" element={<Chamada />} />
+        <Route path='/' element={<Chamada />} />
+        <Route path="/CadastrarTurmas" element={<CadastrarTurmas />} />
+        <Route path="/AlterarTurmas" element={<AlterarTurmas />} />
+        <Route path="/ListarTurmas" element={<ListarTurmas />} />
+        <Route path="/CadastrarAluno" element={<CadastrarAlunos />} />
+        <Route path="/ListarAlunos" element={<ListarAlunos />} />
       </Routes>
     </BrowserRouter>
   )
