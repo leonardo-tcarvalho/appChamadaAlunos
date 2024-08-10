@@ -6,9 +6,9 @@ export default {
       flex: {
         full: 1,
       },
-      boxShadow: {
-        l: "2px 0px 10px 1px black",
-      },
+      borderWidth:{
+        1: '1px'
+      }
     },
   },
   plugins: [],
