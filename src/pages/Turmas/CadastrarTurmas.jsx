@@ -8,7 +8,7 @@ export function CadastrarTurmas() {
         <div className="w-full flex flex-col gap-5">
           <div className="w-full -pt-8 mx-auto relative group:">
             <label
-              className="absolute  py-0 -translate-y-8 text-white bg-gray-900 text-xl duration-100 group-focus-within:duration-100 group-focus-within:-translate-y-4 group-focus-within:translate-x-4  group-focus-within:px-1"
+              className="absolute  py-0 -translate-y-8 text-white bg-gray-900 text-xl duration-100 group-focus-within:duration-100 group-focus-within:-translate-y-4 group-focus-within:translate-x-4 group-focus-within:px-1"
               htmlFor=""
             >
               Nome da Turma
