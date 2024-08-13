@@ -3,11 +3,11 @@ include_once '../conexao.php';
 $BANCO = "ESCOLA";
 $Conexao = Conexao::getConnection($BANCO);
 
-$nomeCompleto = $_POST['nomeCompleto'];
-$idade = $_POST['idade'];
-$cidade = $_POST['cidade'];
-$nomeResp = $_POST['nomeResp'];
-$codTurma = $_POST['codTurma'];
+$nomeCompleto = $_REQUEST['nomeCompleto'];
+$idade = $_REQUEST['idade'];
+$cidade = $_REQUEST['cidade'];
+$nomeResp = $_REQUEST['nomeResp'];
+$codTurma = $_REQUEST['turma'];
 
 $QUERY = "
   INSERT INTO 

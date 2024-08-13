@@ -1,10 +1,8 @@
 <?php
 define('DB_HOST', "localhost");
 define('DB_USER', "sa");
-define('DB_PASSWORD', "50062493@Leo");
-define('DB_DRIVER', "sqlsrv");
-
-$v_linked_server_lyceum =  "ESCOLA.dbo.";
+define('DB_PASSWORD', "12345678@Leo");
+define('DB_DATABASE', "ESCOLA"); // Nome do banco de dados
 
 class Conexao
 {
@@ -12,22 +10,29 @@ class Conexao
 
     private function __construct() {}
 
-    public static function getConnection($BANCO)
+    public static function getConnection()
     {
-        $BANCO = "ESCOLA";
-        $pdoConfig  = DB_DRIVER . ":" . "Server=" . DB_HOST . ";";
-        $pdoConfig .= "Database=" . $BANCO . ";";
+        $serverName = "localhost"; // Endereço do servidor SQL
+        $connectionOptions = array(
+            "Database" => "ESCOLA", // Nome do banco de dados
+            "Uid" => "sa", // Nome do usuário
+            "PWD" => "1234578@Leo", // Senha do usuário
+        );
 
         try {
-            if (!isset($connection)) {
-                $connection =  new PDO($pdoConfig, DB_USER, DB_PASSWORD);
-                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if (!self::$connection) {
+                self::$connection = sqlsrv_connect($serverName, $connectionOptions);
+
+                if (self::$connection === false) {
+                    throw new Exception("Erro de conexão com o banco de dados.<br>" . print_r(sqlsrv_errors(), true));
+                } else {
+                    echo "Conexão com o banco de dados bem-sucedida!";
+                }
             }
-            return $connection;
-        } catch (PDOException $e) {
-            $mensagem = "Drivers disponiveis: " . implode(",", PDO::getAvailableDrivers());
-            $mensagem .= "\nErro: " . $e->getMessage();
-            throw new Exception($mensagem);
+            return self::$connection;
+        } catch (Exception $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+            die();
         }
     }
 }

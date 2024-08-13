@@ -12,13 +12,13 @@ export function CadastrarAlunos() {
   function BuscarDadosAluno() {
     axios({
       method: "POST",
-      url: '../../../querys/cadastrar_aluno.php',
+      url: '/database/querys/cadastrar_aluno.php',
       data: {
         nomeCompleto: nomeCompleto,
-        idade: idade,
+        idade: Number(idade),
         cidade: cidade,
         nomeResp: nomeResp,
-        codTurma: turma
+        codTurma: Number(turma)
       }
     })
       .then(response => {
@@ -60,7 +60,7 @@ export function CadastrarAlunos() {
             </label>
             <input
               className="w-full h-14 p-3 cursor-pointer text-white bg-gray-900 rounded-md border-2 border-white outline-none"
-              type="text"
+              type="number"
               placeholder="Digite a idade do aluno.."
               value={idade}
               onChange={(e) => setIdade(e.target.value)}
@@ -105,7 +105,7 @@ export function CadastrarAlunos() {
             </label>
             <input
               className="w-full h-14 p-3 cursor-pointer text-white bg-gray-900 rounded-md border-2 border-white outline-none"
-              type="text"
+              type="number"
               placeholder="Digite a turma do aluno..."
               value={turma}
               onChange={(e) => setTurma(e.target.value)}
