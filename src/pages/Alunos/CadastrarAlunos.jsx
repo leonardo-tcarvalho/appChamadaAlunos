@@ -10,17 +10,18 @@ export function CadastrarAlunos() {
   const [turma, setTurma] = useState(0)
 
   function BuscarDadosAluno() {
-    axios({
-      method: "POST",
-      url: '/database/querys/cadastrar_aluno.php',
-      data: {
-        nomeCompleto: nomeCompleto,
-        idade: Number(idade),
-        cidade: cidade,
-        nomeResp: nomeResp,
-        codTurma: Number(turma)
+    axios.post('http://localhost:8080/public/database/querys/cadastrar_aluno.php', {
+      nomeCompleto: nomeCompleto,
+      idade: Number(idade),
+      cidade: cidade,
+      nomeResp: nomeResp,
+      codTurma: Number(turma)
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
       }
-    })
+    }
+    )
       .then(response => {
         console.log('Aluno cadastrado com sucesso:', response.data);
       })
