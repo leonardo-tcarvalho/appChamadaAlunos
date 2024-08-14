@@ -11,7 +11,7 @@ export function CadastrarTurmas() {
               className="absolute  py-0 -translate-y-8 text-white bg-gray-900 text-xl duration-100 group-focus-within:duration-100 group-focus-within:-translate-y-4 group-focus-within:translate-x-4  group-focus-within:px-1"
               htmlFor=""
             >
-              Nome da Turma
+              Codigo do Docente
             </label>
             <input
               className="w-full h-14 p-3 cursor-pointer text-white bg-gray-900 rounded-md border-2 border-white outline-none"
@@ -24,12 +24,25 @@ export function CadastrarTurmas() {
               className="absolute  py-0 -translate-y-8 text-white bg-gray-900 text-xl duration-100 group-focus-within:duration-100 group-focus-within:-translate-y-4 group-focus-within:translate-x-4  group-focus-within:px-1"
               htmlFor=""
             >
-              Grade da Turma
+              Nome da Turma
             </label>
             <input
               className="w-full h-14 p-3 cursor-pointer text-white bg-gray-900 rounded-md border-2 border-white outline-none"
               type="text"
               placeholder="Digite o ano da grade.."
+            />
+          </div>
+          <div className="w-full pt-8 mx-auto relative group">
+            <label
+              className="absolute  py-0 -translate-y-8 text-white bg-gray-900 text-xl duration-100 group-focus-within:duration-100 group-focus-within:-translate-y-4 group-focus-within:translate-x-4  group-focus-within:px-1"
+              htmlFor=""
+            >
+              Grade Ano
+            </label>
+            <input
+              className="w-full h-14 p-3 cursor-pointer text-white bg-gray-900 rounded-md border-2 border-white outline-none"
+              type="text"
+              placeholder="Digite a grade da turma..."
             />
           </div>
           <div className="w-full pt-8 mx-auto relative group">
