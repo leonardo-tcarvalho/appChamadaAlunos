@@ -6,6 +6,8 @@ import { Chamada } from "./pages/Chamada"
 import { CadastrarTurmas } from "./pages/Turmas/CadastrarTurmas"
 import { AlterarTurmas } from "./pages/Turmas/AlterarTurmas"
 import { ListarTurmas } from "./pages/Turmas/ListarTurmas"
+import { ListarDocentes } from "./pages/Docentes/ListarDocentes"
+import { CadastrarDocentes } from "./pages/Docentes/CadastrarDocentes"
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/ListarTurmas" element={<ListarTurmas />} />
         <Route path="/CadastrarAluno" element={<CadastrarAlunos />} />
         <Route path="/ListarAlunos" element={<ListarAlunos />} />
+        <Route path="/CadastrarDocente" element={<CadastrarDocentes />} />
+        <Route path="/ListarDocente" element={<ListarDocentes />} />
       </Routes>
     </BrowserRouter>
   )

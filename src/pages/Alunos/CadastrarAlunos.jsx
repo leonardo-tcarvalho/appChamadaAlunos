@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import { api } from "../../lib/axios";
 
 export function CadastrarAlunos() {
 
@@ -7,10 +7,10 @@ export function CadastrarAlunos() {
   const [idade, setIdade] = useState(0)
   const [cidade, setCidade] = useState('')
   const [nomeResp, setNomeResp] = useState('')
-  const [turma, setTurma] = useState(0)
+  const [turma, setTurma] = useState(1)
 
   function BuscarDadosAluno() {
-    axios.post('http://localhost:8080/public/database/querys/cadastrar_aluno.php', {
+    api.post('cadastrar_aluno.php', {
       nomeCompleto: nomeCompleto,
       idade: Number(idade),
       cidade: cidade,

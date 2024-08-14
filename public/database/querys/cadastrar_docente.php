@@ -15,23 +15,17 @@ if (!$data) {
 }
 
 $nomeCompleto = $data['nomeCompleto'] ?? null;
-$idade = $data['idade'] ?? null;
-$cidade = $data['cidade'] ?? null;
-$nomeResp = $data['nomeResp'] ?? null;
-$codTurma = $data['codTurma'] ?? null;
+$disciplina = $data['disciplina'] ?? null;
 
 $QUERY = "
-INSERT INTO ALUNOS
-  (NOME_COMPL, IDADE, CIDADE, NOME_RESP, COD_TURMA) 
+INSERT INTO DOCENTES
+  (NOME_COMPL, DISCIPLINA) 
 VALUES
-  (:nomeCompleto, :idade, :cidade, :nomeResp, :codTurma)
+  (:nomeCompleto, :disciplina)
 ";
 $statement = $Conexao->prepare($QUERY);
 
 $statement->bindParam(':nomeCompleto', $nomeCompleto);
-$statement->bindParam(':idade', $idade);
-$statement->bindParam(':cidade', $cidade);
-$statement->bindParam(':nomeResp', $nomeResp);
-$statement->bindParam(':codTurma', $codTurma);
+$statement->bindParam(':disciplina', $disciplina);
 
 $statement->execute();
