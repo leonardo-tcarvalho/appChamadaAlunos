@@ -22,9 +22,9 @@ $codTurma = $data['codTurma'] ?? null;
 
 $QUERY = "
 INSERT INTO ALUNOS
-  (NOME_COMPL, IDADE, CIDADE, NOME_RESP, COD_TURMA) 
+  (NOME_COMPL, IDADE, CIDADE, COD_TURMA, NOME_RESP) 
 VALUES
-  (:nomeCompleto, :idade, :cidade, :nomeResp, :codTurma)
+  (:nomeCompleto, :idade, :cidade, :codTurma, :nomeResp)
 ";
 $statement = $Conexao->prepare($QUERY);
 

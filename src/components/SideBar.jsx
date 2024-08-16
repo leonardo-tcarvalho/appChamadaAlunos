@@ -5,20 +5,32 @@ import { UsersSVG } from "../images/svg/UsersSVG";
 import { AgendTabSVG } from "../images/svg/AgendTabSVG";
 import { SchoolSVG } from "../images/svg/SchoolSVG";
 import { MenuSVG } from "../images/svg/MenuSVG";
+import { useState } from "react";
+import { CloseMenuSVG } from "../images/svg/CloseMenuSVG";
 
 export function SideBar() {
+  const [activeMenu, setActiveMenu] = useState(false)
+
+  function openMenu() {
+    setActiveMenu(!activeMenu)
+  }
+
   return (
-    <menu className="sm:group/menu group">
-      <button className="sm:hidden w-screen absolute p-4 bg-gray-900 text-white">
+    <menu>
+      <button onClick={openMenu} className="sm:hidden w-screen absolute p-4 bg-gray-900 text-white">
         <MenuSVG />
       </button>
-      <nav className="flex justify-center w-60 h-screen py-10 sm:border-r-2 border-white bg-gray-900 overflow-hidden  duration-1000 z-50 max-sm:absolute max-sm:max-w-0 group-focus-within/menu:border-r-2 group-focus-within:border-white group-focus-within/menu:duration-1000 group-focus-within/menu:flex group-focus-within/menu:max-w-96 max-sm:group-focus-within:border-r-2 max-sm:group-focus-within:border-white max-sm:group-focus-within:duration-1000 max-sm:group-focus-within:flex max-sm:group-focus-within:max-w-96">
+      <nav className={`flex justify-center w-60 h-screen py-10 border-r-2
+         border-white bg-gray-900 overflow-y-hidden sm:translate-x-0 z-50 max-sm:absolute max-sm:${activeMenu ? 'border-r-2' : 'border-none'} ${activeMenu ? '-translate-x-60' : 'translate-x-0'} duration-1000`}>
         <ul className="w-full overflow-y-auto">
-          <div className="flex justify-center pb-5">
+          <button onClick={openMenu} className="sm:hidden w-full absolute p-4 top-0 bg-gray-900 text-white">
+            <CloseMenuSVG />
+          </button>
+          <div className="flex justify-center mt-5 pb-5">
             <SchoolSVG />
           </div>
           <Link to="/">
-            <li className="flex w-11/12 mx-auto my-2 items-center rounded-md py-2 px-5 gap-5 duration-100 hover:duration-100 hover:bg-gray-800">
+            <li onClick={openMenu} className="flex w-11/12 mx-auto my-2 items-center rounded-md py-2 px-5 gap-5 duration-100 hover:duration-100 hover:bg-gray-800">
               <AgendTabSVG />
               <p className="font-normal text-white text-nowrap">
                 Lista de Presença
@@ -32,7 +44,7 @@ export function SideBar() {
             </li>
             <ul className="w-11/12 mx-auto max-h-0 easy ease-in-out duration-200 overflow-hidden group-hover:max-h-96 group-hover:duration-1000">
               <Link to="/CadastrarTurmas">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Cadastrar Turma
@@ -40,7 +52,7 @@ export function SideBar() {
                 </li>
               </Link>
               <Link to="AlterarTurmas">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Alterar Turma
@@ -48,7 +60,7 @@ export function SideBar() {
                 </li>
               </Link>
               <Link to="/ListarTurmas">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Lista de Turmas
@@ -64,7 +76,7 @@ export function SideBar() {
             </li>
             <ul className="w-11/12 mx-auto max-h-0 ease-in-out duration-200 overflow-hidden group-hover:max-h-96 group-hover:duration-1000">
               <Link to="/CadastrarAluno">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Cadatrar Aluno
@@ -72,7 +84,7 @@ export function SideBar() {
                 </li>
               </Link>
               <Link to="/ListarAlunos">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Lista de Alunos
@@ -88,7 +100,7 @@ export function SideBar() {
             </li>
             <ul className="w-11/12 mx-auto max-h-0 ease-in-out duration-200 overflow-hidden group-hover:max-h-96 group-hover:duration-1000">
               <Link to="/CadastrarDocente">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Cadatrar Docente
@@ -96,7 +108,7 @@ export function SideBar() {
                 </li>
               </Link>
               <Link to="/ListarDocentes">
-                <li className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
+                <li onClick={openMenu} className="flex w-11/12 ml-auto my-2 items-center rounded-md py-2 px-5 gap-2 duration-100 hover:duration-100 hover:bg-gray-800">
                   <CircleSVG />
                   <p className="font-normal text-white text-nowrap">
                     Lista de Docentes
