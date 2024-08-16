@@ -31,5 +31,4 @@ $statement->bindParam(':codDocente', $codDocente);
 $statement->bindParam(':nomeTurma', $nomeTurma);
 $statement->bindParam(':grade', $grade);
 $statement->bindParam(':serie', $serie);
-
 $statement->execute();
