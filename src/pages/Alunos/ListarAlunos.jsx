@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { api } from "../../lib/axios"
-import { Link } from "react-router-dom"
 
 export function ListarAlunos() {
   const [nomeAluno, setNomeAluno] = useState('')
