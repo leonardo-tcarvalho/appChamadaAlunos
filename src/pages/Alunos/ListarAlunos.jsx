@@ -25,7 +25,7 @@ export function ListarAlunos() {
 
   return (
     <section className="flex-full bg-black xl:p-20 lg:p-10">
-      <div className="w-full h-full p-10 rounded-lg bg-gray-900 max-sm:pt-20 max-sm:px-5 max-sm:rounded-none custom-scrollbar">
+      <div className="w-full h-full p-10 rounded-lg bg-gray-900 max-sm:pt-20 max-sm:px-5 max-sm:rounded-none">
         <h1 className="w-full text-3xl text-center text-white pb-10">
           Lista de Alunos
         </h1>
@@ -44,7 +44,7 @@ export function ListarAlunos() {
             onChange={(e) => setNomeAluno(e.target.value)}
           />
         </div>
-        <div className="w-full h-2/3 max-lg:h-full overflow-y-auto custom-scrollbar">
+        <div className="w-full h-[calc(100%-164px)] overflow-y-auto custom-scrollbar">
           {dadosAlunos.length > 0 ? (
             dadosAlunos.map((aluno) => (
               <div key={aluno.ALUNO} className="bg-gray-900 rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
