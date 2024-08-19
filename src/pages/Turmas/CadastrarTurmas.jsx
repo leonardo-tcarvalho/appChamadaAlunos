@@ -29,7 +29,7 @@ export function CadastrarTurmas() {
   }
   return (
     <section className="flex-full bg-black xl:p-20 lg:p-10">
-      <div className="w-full h-full p-10 rounded-lg overflow-y-auto bg-gray-900 max-sm:pt-20 max-sm:px-5 max-sm:rounded-none">
+      <div className="w-full h-full p-10 rounded-lg overflow-y-auto bg-gray-900 max-sm:pt-20 max-sm:px-5 max-sm:rounded-none custom-scrollbar">
         <h1 className="w-full text-3xl text-center text-white pb-10">
           Cadastrar Nova Turma
         </h1>
