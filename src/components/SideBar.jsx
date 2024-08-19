@@ -17,13 +17,13 @@ export function SideBar() {
 
   return (
     <menu>
-      <button onClick={openMenu} className="sm:hidden w-screen absolute p-4 bg-gray-900 text-white">
+      <button onClick={openMenu} className="sm:hidden w-16 absolute p-4 bg-gray-900 text-white">
         <MenuSVG />
       </button>
       <nav className={`flex justify-center w-60 h-screen py-10 border-r-2
          border-white bg-gray-900 overflow-y-hidden sm:translate-x-0 z-50 max-sm:absolute max-sm:${activeMenu ? 'border-r-2' : 'border-none'} ${activeMenu ? '-translate-x-60' : 'translate-x-0'} duration-1000`}>
         <ul className="w-full overflow-y-auto">
-          <button onClick={openMenu} className="sm:hidden w-full absolute p-4 top-0 bg-gray-900 text-white">
+          <button onClick={openMenu} className="sm:hidden w-16 absolute p-4 top-0 bg-gray-900 text-white">
             <CloseMenuSVG />
           </button>
           <div className="flex justify-center mt-5 pb-5">
