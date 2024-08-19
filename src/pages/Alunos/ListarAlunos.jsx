@@ -44,7 +44,7 @@ export function ListarAlunos() {
             onChange={(e) => setNomeAluno(e.target.value)}
           />
         </div>
-        <div className="w-full h-[calc(100%-164px)] overflow-y-auto custom-scrollbar">
+        <div className="w-full h-[calc(100%-184px)] overflow-y-auto custom-scrollbar">
           {dadosAlunos.length > 0 ? (
             dadosAlunos.map((aluno) => (
               <div key={aluno.ALUNO} className="bg-gray-900 rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
